@@ -10,4 +10,9 @@
     <bean id="myPet" class="com.course.spring.Dog">
 
     </bean>
+
+    <bean id="myPerson" class="com.course.spring.Person">
+<!--        <constructor-arg ref="myPet" />-->
+        <property name="pet" ref="myPet"/>
+    </bean>
 </beans>
