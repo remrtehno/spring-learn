@@ -2,10 +2,16 @@ package com.course.spring;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component("myPerson")
 public class Person {
+//    @Value("Test name")
+
+    @Value("${person.name}")
+    String name;
+
 //    // 1 VARIANT
 //    @Autowired
 //    @Qualifier("myDog")
