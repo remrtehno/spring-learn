@@ -6,10 +6,15 @@ public class Test {
     public static void main(String[] args) {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 
-        Person person = context.getBean("myPerson", Person.class);
-        person.petYourPet();
+//        Person person = context.getBean("myPerson", Person.class);
+//        person.petYourPet();
+//
+//        System.out.println(person.name);
 
-        System.out.println(person.name);
+        Pet dog = context.getBean("myDog", Dog.class);
+        Pet dog2 = context.getBean("myDog", Dog.class);
+        System.out.println("the same objects?: ");
+        System.out.println(dog == dog2);
 
         context.close();
     }
