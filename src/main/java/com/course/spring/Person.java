@@ -5,16 +5,21 @@ import org.springframework.stereotype.Component;
 
 @Component("myPerson")
 public class Person {
-    Pet pet;
+    // 1 VARIANT
     @Autowired
-    public Person(Pet pet) {
-        this.pet = pet;
-    }
+    Pet pet;
+// 2 VARIANT
+//    @Autowired
+//    public Person(Pet pet) {
+//        this.pet = pet;
+//    }
 
 //    public Pet getPet() {
 //        return pet;
 //    }
 //
+    // 3 VARIANT
+//    @Autowired
 //    public void setPet(Pet pet) {
 //        this.pet = pet;
 //    }
