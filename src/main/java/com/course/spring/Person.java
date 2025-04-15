@@ -17,8 +17,8 @@ public class Person {
 //    @Qualifier("myDog")
     Pet pet;
 // 2 VARIANT
-    @Autowired
-    public Person(@Qualifier("myDog") Pet pet) {
+//    @Autowired
+    public Person(Pet pet) {
         this.pet = pet;
     }
 

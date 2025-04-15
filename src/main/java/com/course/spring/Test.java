@@ -6,13 +6,12 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Test {
     public static void main(String[] args) {
 //        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-
-//        Person person = context.getBean("myPerson", Person.class);
-//        person.petYourPet();
-//
-//        System.out.println(person.name);
-
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(MyConfig.class);
+
+        Person person = context.getBean("myPerson", Person.class);
+        person.petYourPet();
+
+        System.out.println(person.name);
 
         Pet dog = context.getBean("myDog", Dog.class);
         Pet dog2 = context.getBean("myDog", Dog.class);
