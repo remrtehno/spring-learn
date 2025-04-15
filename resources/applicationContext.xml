@@ -7,12 +7,5 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean id="myPet" class="com.course.spring.Dog">
-
-    </bean>
-
-    <bean id="myPerson" class="com.course.spring.Person">
-<!--        <constructor-arg ref="myPet" />-->
-        <property name="pet" ref="myPet"/>
-    </bean>
+    <context:component-scan base-package="com.course.spring" />
 </beans>
