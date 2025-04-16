@@ -46,7 +46,7 @@ class LoggingAspect {
     }
 
 
-
+//    @Pointcut("allReturnMethodsFromLibrary() && !allGetMethodsFromLibrary()") // we exclude the second po
     @Pointcut("allReturnMethodsFromLibrary() || allGetMethodsFromLibrary()")
     private void getAllReturnAndGetMethods() {
     }
