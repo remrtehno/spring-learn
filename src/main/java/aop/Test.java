@@ -9,6 +9,7 @@ public class Test {
 
         Library library = context.getBean("library", Library.class);
         library.getBook();
+        library.returnBook();
 
         context.close();
     }

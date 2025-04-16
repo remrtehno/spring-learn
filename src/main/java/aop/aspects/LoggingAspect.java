@@ -22,7 +22,7 @@ class LoggingAspect {
 
 
     // 27 lesson
-    @Pointcut("execution(* *())")
+    @Pointcut("execution(* get*())")
     private void getAllGetMethods(){}
 
 
@@ -36,5 +36,24 @@ class LoggingAspect {
         System.out.println("beforeGetSecurityAdvice: Try to call get book");
     }
 
+
+//    29 Lesson
+    @Pointcut("execution(* aop.Library.return*())")
+    private void allReturnMethodsFromLibrary() {
+    }
+    @Pointcut("execution(* aop.Library.get*())")
+    private void allGetMethodsFromLibrary() {
+    }
+
+
+
+    @Pointcut("allReturnMethodsFromLibrary() || allGetMethodsFromLibrary()")
+    private void getAllReturnAndGetMethods() {
+    }
+
+    @Before("getAllReturnAndGetMethods()")
+    private void beforeReturnAndGetMethodsAdvice() {
+        System.out.println("Combining in getAllReturnAndGetMethods: allReturnMethodsFromLibrary() || beforeGetSecurityAdvice()");
+    }
 
 }
