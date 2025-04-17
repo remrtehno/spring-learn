@@ -1,10 +1,11 @@
 package com.course.spring;
 
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
+
 
 @Component("myDog")
 //@Scope("singleton")
