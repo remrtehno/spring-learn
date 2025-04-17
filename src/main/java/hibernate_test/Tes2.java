@@ -5,7 +5,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class Test {
+public class Tes2 {
     public static void main(String[] args) {
 
         try {
@@ -17,12 +17,18 @@ public class Test {
 
 
             Session session = factory.getCurrentSession();
-            Employee emp = new Employee("T", "2", "4", 3);
-
+            Employee emp = new Employee("Jack", "Bechar", "IT", 30000);
             session.beginTransaction();
             session.save(emp);
-            session.getTransaction().commit();
+//            session.getTransaction().commit();
             System.out.println(emp);
+
+            // get by id
+//            session = factory.getCurrentSession();
+//            session.beginTransaction();
+            Employee employee = session.get(Employee.class, emp.getId());
+            System.out.println("Got the employee by id: " + employee);
+            session.getTransaction().commit();
 
             session.close();
         } finally {
