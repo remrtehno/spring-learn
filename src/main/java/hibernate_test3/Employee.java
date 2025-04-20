@@ -17,7 +17,10 @@ public class Employee {
     @Column(name="surname")
     private String surname;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+//    @ManyToOne(cascade = CascadeType.ALL)
+@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH})
+// we put it here, because deleteion of employee will delete department, which will delete other employees
+
     @JoinColumn(name = "department_id")
     private Department department;
 
