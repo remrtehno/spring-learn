@@ -17,9 +17,9 @@ public class Test {
 
         Session session = factory.getCurrentSession();
         try {
-//            Department department = new Department("It", 300, 1200);
-//            Employee employee = new Employee("Siu", "Surname", 900);
-//            Employee employee2 = new Employee("Pen", "Surname", 100);
+//            Department department = new Department("HR", 300, 1200);
+//            Employee employee = new Employee("Petr", "Surname", 900);
+//            Employee employee2 = new Employee("Helen", "Surname", 100);
 //
 //            department.addEmpToDepartment(employee);
 //            department.addEmpToDepartment(employee2);
@@ -30,19 +30,21 @@ public class Test {
 //            session.getTransaction().commit();
 
             session.beginTransaction();
-            Department department = session.get(Department.class, 6);
+            System.out.println("Fetching department data");
+            Department department = session.get(Department.class, 7);
             System.out.println(department);
+
+            /* JUST TO FIX LAZY ISSUE - SUB LOADING JUST TO DO IT BEFORE THE SESSION IS CLOSED*/
+            department.getEmployees().get(0);
+
+            session.getTransaction().commit();
+
+            System.out.println("Fetching employee data");
             System.out.println(department.getEmployees());
-            session.getTransaction().commit();
 
 
-            session = factory.getCurrentSession();
-            session.beginTransaction();
-            Department department2 = session.get(Department.class, 6);
-            session.delete(department2);
-//            if delete EMployee we don't delete departament
-            // if we delete depart - we will delete all employees associaeed with it
-            session.getTransaction().commit();
+
+
 
 
         } finally {

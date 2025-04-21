@@ -44,7 +44,9 @@ public class Department {
     }
 
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY) // we can put eager or lazy
+    // in case lazy we load empolyees when we try to get the data from the method
+//   DEFAULT LAZY for @*toMany - * to Many
     @JoinColumn(name = "department_id")
     private List<Employee> employees;
 
