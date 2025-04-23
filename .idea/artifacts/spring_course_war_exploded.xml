@@ -68,7 +68,6 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-orm:6.2.5" />
           <element id="library" level="project" name="Maven: org.springframework:spring-tx:6.2.5" />
           <element id="library" level="project" name="Maven: org.springframework:spring-aspects:6.2.5" />
-          <element id="library" level="project" name="Maven: com.mysql:mysql-connector-j:8.0.33" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="spring-course/web/Web" />
