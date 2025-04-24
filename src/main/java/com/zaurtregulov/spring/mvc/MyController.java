@@ -13,4 +13,14 @@ public class MyController {
     public String showFirstView() {
         return "firstView";
     }
+
+    @RequestMapping("ask-employee-details")
+    public String askEmployeeDetails() {
+        return "ask-employee-details";
+    }
+
+    @RequestMapping("show-employee-details")
+    public String showEmployeeDetails() {
+        return "show-employee-details";
+    }
 }
