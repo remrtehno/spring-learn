@@ -6,7 +6,7 @@
     <title>Employee Details Form</title>
 </head>
 <body>
-<h1>Welcome, ${nameAttribute}!</h1>
+<h1>Welcome, ${employee.employeeName}!</h1>
 </form>
 </body>
 </html>

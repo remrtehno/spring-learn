@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,17 +7,12 @@
     <title>Employee Details Form</title>
 </head>
 <body>
-<form action="/spring_course/show-employee-details" method="post">
+<form:form action="/spring_course/employee/show-employee-details" method="post" modelAttribute="employee">
     <label for="employee-name">Name:</label>
-    <input type="text" id="employee-name" name="employeeName" required>
-    <br>
-    <label for="employee-id">Employee ID:</label>
-    <input type="text" id="employee-id" name="employeeId" required>
-    <br>
-    <label for="employee-department">Department:</label>
-    <input type="text" id="employee-department" name="employeeDepartment" required>
-    <br>
+    <form:input path="employeeName" id="employee-name" required="true" />
+    <form:errors path="employeeName" cssClass="error"/>
+
     <button type="submit">Submit</button>
-</form>
+</form:form>
 </body>
 </html>
