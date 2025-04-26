@@ -8,6 +8,8 @@
 <body>
     <h2>Add New Employee</h2>
     <form:form action="saveNewEmployee" modelAttribute="employee">
+        <form:hidden path="id"  />
+<%--        this hidden is optional --%>
         <table>
             <tr>
                 <td>First Name:</td>

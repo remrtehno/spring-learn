@@ -1,6 +1,5 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html>
 <html>
 <head>
   <title>Employee List</title>
@@ -21,29 +20,43 @@
   </style>
 </head>
 <body>
-
-<h2 style="text-align:center;">Employee List</h2>
-
-<table>
-  <thead>
-  <tr>
-    <th>Name</th>
-    <th>Surname</th>
-    <th>Department</th>
-    <th>Salary</th>
-  </tr>
-  </thead>
-  <tbody>
-  <c:forEach var="emp" items="${employees}">
-    <tr>
-      <td>${emp.name}</td>
-      <td>${emp.surname}</td>
-      <td>${emp.department}</td>
-      <td>${emp.salary}</td>
-    </tr>
-  </c:forEach>
-  </tbody>
-</table>
-
+    <h2>All Employees</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Department</th>
+                <th>Salary</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <c:forEach var="employee" items="${employees}">
+                <!-- Corrected c:url example for reference -->
+                <!-- 
+                <c:url var="employeeUrl" value="employee">
+                    <c:param name="id" value="${employee.id}" />
+                </c:url>
+                -->
+                <tr>
+                    <td>${employee.id}</td>
+                    <td>${employee.name}</td>
+                    <td>${employee.surname}</td>
+                    <td>${employee.department}</td>
+                    <td>${employee.salary}</td>
+                    <td>
+                        <a href="updateEmployee?id=${employee.id}">
+                            <button>Update</button>
+                        </a>
+                        <button>Delete</button>
+                    </td>
+                </tr>
+            </c:forEach>
+        </tbody>
+    </table>
+    <br>
+    <a href="addNewEmployee">Add New Employee</a>
 </body>
 </html>
