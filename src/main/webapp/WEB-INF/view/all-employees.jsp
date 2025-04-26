@@ -50,7 +50,9 @@
                         <a href="updateEmployee?id=${employee.id}">
                             <button>Update</button>
                         </a>
-                        <button>Delete</button>
+                        <a href="deleteEmployee?id=${employee.id}" onclick="return confirm('Are you sure you want to delete this employee?');">
+                            <button>Delete</button>
+                        </a>
                     </td>
                 </tr>
             </c:forEach>
