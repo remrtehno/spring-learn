@@ -5,9 +5,6 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "employees")
 public class Employee {
-    public Employee() {
-    }
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -24,6 +21,9 @@ public class Employee {
 
     @Column(name = "salary")
     private int salary;
+
+    public Employee() {
+    }
 
     public Employee(String name, String surname, String department, int salary) {
         this.name = name;
