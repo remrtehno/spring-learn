@@ -34,22 +34,5 @@ public class MyController {
         return employee;
     }
 
-    @ExceptionHandler
-    public ResponseEntity<EmployeeIncorrectData> handleException(NoSuchEmployeeException exception) {
-        EmployeeIncorrectData data = new EmployeeIncorrectData();
-        data.setInfo(exception.getMessage());
 
-        // NOT FOUND employee/100000000
-        return new ResponseEntity<>(data, HttpStatus.NOT_FOUND);
-    }
-
-    @ExceptionHandler
-    public ResponseEntity<EmployeeIncorrectData> handleException(Exception exception) {
-        // changes NoSuchEmployeeException -> Exception
-        EmployeeIncorrectData data = new EmployeeIncorrectData();
-        data.setInfo(exception.getMessage());
-
-        // BAD REQUEST employee/abc
-        return new ResponseEntity<>(data, HttpStatus.BAD_REQUEST);
-    }
 }
