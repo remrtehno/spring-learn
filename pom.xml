@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.spring.pet</groupId>
-    <artifactId>petproject</artifactId>
+    <artifactId>pet_spring_jpa</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>petproject</name>
-    <description>petproject</description>
+    <name>pet_spring_jpa</name>
+    <description>pet_spring_jpa</description>
     <url/>
     <licenses>
         <license/>
@@ -49,20 +49,6 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <scope>runtime</scope>
-            <optional>true</optional>
-
-
-<!--            Go to File > Settings > Build, Execution, Deployment > Compiler-->
-<!--            Enable "Build project automatically"-->
-<!--            Go to Advanced Settings in the same Compiler section-->
-<!--            Enable "Allow auto-make to start even if developed application is currently running"-->
-        </dependency>
-
-
     </dependencies>
 
     <build>

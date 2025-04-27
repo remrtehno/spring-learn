@@ -1,7 +1,8 @@
-package com.spring.pet.petproject.controller;
+package com.spring.pet.pet_spring_jpa.controller;
 
-import com.spring.pet.petproject.entity.Employee;
-import com.spring.pet.petproject.service.EmployeeService;
+
+import com.spring.pet.pet_spring_jpa.entity.Employee;
+import com.spring.pet.pet_spring_jpa.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -49,5 +50,11 @@ public class MyController {
 
         employeeService.deleteEmployee(id);
         return "Employee with id " + id + " was deleted!!!!";
+    }
+
+    @GetMapping("/employees/name/{name}")
+    public List<Employee> getEmployeeByName(@PathVariable("name") String name) {
+        List<Employee> employees = employeeService.getEmployeeByName(name);
+        return employees;
     }
 }
