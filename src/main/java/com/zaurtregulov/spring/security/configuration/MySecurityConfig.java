@@ -1,40 +1,35 @@
 package com.zaurtregulov.spring.security.configuration;
 
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.provisioning.JdbcUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
+
+import javax.sql.DataSource;
+
 
 @Configuration
 @EnableWebSecurity
 public class MySecurityConfig {
+    @Autowired
+    private DataSource dataSource;
 
     @Bean
-    public InMemoryUserDetailsManager userDetailsManager() {
-        PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
+    public UserDetailsService userDetailsService() {
+        JdbcUserDetailsManager jdbcUserDetailsManager = new JdbcUserDetailsManager(dataSource);
+        return jdbcUserDetailsManager;
+    }
 
-        UserDetails user = User.withUsername("user")
-                .password(encoder.encode("user"))
-                .roles("EMPLOYEE")
-                .build();
-
-        UserDetails hr = User.withUsername("hr")
-                .password(encoder.encode("user"))
-                .roles("HR")
-                .build();
-
-        UserDetails admin = User.withUsername("admin")
-                .password(encoder.encode("admin"))
-                .roles("MANAGER")
-                .build();
-
-        return new InMemoryUserDetailsManager(user, admin, hr);
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return PasswordEncoderFactories.createDelegatingPasswordEncoder();
     }
 
     @Bean
