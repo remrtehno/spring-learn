@@ -24,12 +24,17 @@ public class MySecurityConfig {
                 .roles("EMPLOYEE")
                 .build();
 
-        UserDetails admin = User.withUsername("admin")
-                .password(encoder.encode("admin"))
-                .roles("EMPLOYEE")
+        UserDetails hr = User.withUsername("hr")
+                .password(encoder.encode("user"))
+                .roles("HR")
                 .build();
 
-        return new InMemoryUserDetailsManager(user, admin);
+        UserDetails admin = User.withUsername("admin")
+                .password(encoder.encode("admin"))
+                .roles("MANAGER")
+                .build();
+
+        return new InMemoryUserDetailsManager(user, admin, hr);
     }
 
     @Bean
@@ -37,6 +42,11 @@ public class MySecurityConfig {
         http
                 .authorizeHttpRequests(authorizeRequests ->
                         authorizeRequests
+                                .requestMatchers("/").hasAnyRole("EMPLOYEE", "HR", "MANAGER")
+                                .requestMatchers("/admin/**").hasRole("ADMIN")
+                                .requestMatchers("/hr/**").hasRole("HR")
+                                .requestMatchers("/employee").hasRole("EMPLOYEE")
+                                .requestMatchers("/manager").hasRole("MANAGER")
                                 .anyRequest().authenticated()
                 )
                 .formLogin(formLogin ->
