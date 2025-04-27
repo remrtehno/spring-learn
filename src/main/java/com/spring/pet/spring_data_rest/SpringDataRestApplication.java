@@ -1,13 +1,13 @@
-package com.spring.pet.pet_spring_jpa;
+package com.spring.pet.spring_data_rest;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class PetSpringJpaApplication {
+public class SpringDataRestApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(PetSpringJpaApplication.class, args);
+        SpringApplication.run(SpringDataRestApplication.class, args);
     }
 
 }

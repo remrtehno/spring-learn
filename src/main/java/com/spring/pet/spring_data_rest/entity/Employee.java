@@ -1,4 +1,4 @@
-package com.spring.pet.pet_spring_jpa.entity;
+package com.spring.pet.spring_data_rest.entity;
 
 import jakarta.persistence.*;
 
